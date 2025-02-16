@@ -36,20 +36,23 @@
             font-weight: bold;
             font-family: 'Courier New', Courier, monospace;
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
+            letter-spacing: 2px;
         }
 
         /* Estilizando o relógio */
         #clock {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: bold;
             font-family: 'Arial', sans-serif;
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
             margin-top: 20px;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         /* Ajustando a imagem */
@@ -64,13 +67,12 @@
             var now = new Date().getTime();
             var distance = countDownDate - now;
 
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var anos = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+            var meses = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            var dias = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
 
             document.getElementById("countdown").innerHTML = 
-                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                anos + " anos, " + meses + " meses e " + dias + " dias";
 
             if (distance < 0) {
                 clearInterval(intervalo);
